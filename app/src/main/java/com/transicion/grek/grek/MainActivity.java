@@ -2,14 +2,33 @@ package com.transicion.grek.grek;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    EditText margenCalif, porc_valor;
+    int escalaCalif, por_valor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        margenCalif = (EditText) findViewById(R.id.et_escala);
+        porc_valor = (EditText) findViewById(R.id.editText2);
+
+
+
+
+
+
+
+
 
 /*
         TextView tv_suma = (TextView) findViewById(R.id.tv_suma);
@@ -54,6 +73,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 */
+
+    }
+
+    public void visualizar(View v){
+        escalaCalif = Integer.parseInt(margenCalif.getText().toString());
+        por_valor = Integer.parseInt(porc_valor.getText().toString());
+
+
+        Toast.makeText(this,""+por_valor, Toast.LENGTH_LONG).show();
+
 
     }
 }
