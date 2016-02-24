@@ -9,8 +9,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText margenCalif, porc_valor;
-    int escalaCalif, por_valor;
+    EditText margenCalif, porc_valor, TAR, TAE, PROMEDIO;
+    int escalaCalif, por_valor, TAR_valor, TAE_valor, PROMEDIO_valor;
 
 
     @Override
@@ -21,67 +21,35 @@ public class MainActivity extends AppCompatActivity {
 
         margenCalif = (EditText) findViewById(R.id.et_escala);
         porc_valor = (EditText) findViewById(R.id.editText2);
-
-
-
-
-
-
-
-
-
-/*
-        TextView tv_suma = (TextView) findViewById(R.id.tv_suma);
-        int resultado = 0, a = 5, b = 2;
-        resultado = a + b;
-        tv_suma.setText(String.valueOf(resultado));
-
-        TextView totalFrutas = (TextView) findViewById(R.id.tv_frutas);
-        int resultado2 = 0, manzanas = 6, naranjas = 4;
-        resultado2 = manzanas + naranjas;
-        totalFrutas.setText("Total de frutas= "+String.valueOf(resultado2)+"!!!\n");
-
-        int califEnrique = 79, califCarlos = 89, valor = 70;
-
-        if(79 < valor )
-        {
-            totalFrutas.append("Enrique sigue participando\n");
-        }
-        else if(79 < 80)
-        {
-            totalFrutas.append("Enrique tienes C\n");
-        }
-        else if(79 < 90)
-        {
-            totalFrutas.append("Enrique tienes B\n");
-        }
-        else if(79 < 100)
-        {
-            totalFrutas.append("Enrique tienes A\n");
-        }
-        else
-        {
-            totalFrutas.append("Calificación inválida\n");
-        }
-
-        if(califCarlos < valor)
-        {
-            totalFrutas.append("Carlos sigue participando\n");
-        }
-
-
-
-
-*/
-
+        TAR = (EditText) findViewById(R.id.editText3);
+        TAE = (EditText) findViewById(R.id.editText4);
+        PROMEDIO = (EditText) findViewById(R.id.editText5);
     }
 
     public void visualizar(View v){
-        escalaCalif = Integer.parseInt(margenCalif.getText().toString());
-        por_valor = Integer.parseInt(porc_valor.getText().toString());
+        if(margenCalif.getText().length() >= 1)
+        {
+            escalaCalif = Integer.parseInt(margenCalif.getText().toString());
+        }
+
+        if (porc_valor.getText().length() >= 1)
+        {
+            por_valor = Integer.parseInt(porc_valor.getText().toString());
+        }
+        if (TAR.getText().length() >= 1)
+        {
+            TAR_valor = Integer.parseInt(TAR.getText().toString());
+        }
+        if (TAE.getText().length() >= 1) {
+            TAE_valor = Integer.parseInt(TAE.getText().toString());
+        }
 
 
-        Toast.makeText(this,""+por_valor, Toast.LENGTH_LONG).show();
+        PROMEDIO_valor = (por_valor/TAR_valor)*(TAE_valor);
+
+        PROMEDIO.setText(""+PROMEDIO_valor);
+
+        //Toast.makeText(this,""+escalaCalif+" - "+por_valor, Toast.LENGTH_LONG).show();
 
 
     }
